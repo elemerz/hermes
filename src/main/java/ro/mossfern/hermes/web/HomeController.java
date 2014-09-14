@@ -14,20 +14,20 @@ import ro.mossfern.hermes.entities.User;
 import ro.mossfern.hermes.services.UserService;
 
 /**
- * @author Siva
+ * @author Eli
  *
  */
 @Controller
-public class UserController {
+public class HomeController {
 
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("/welcome")
-	public String welcome(Model model) 
+	@RequestMapping("/")
+	public String home(Model model) 
 	{
-		List<User> blogs = userService.findAllUsers();
-		model.addAttribute("USERS", blogs);
-		return "welcome";
+		List<User> users = userService.findAllUsers();
+		model.addAttribute("users", users);
+		return "home";
 	}
 }
